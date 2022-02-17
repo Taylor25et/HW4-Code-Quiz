@@ -7,7 +7,7 @@ I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
 
 Code Quiz Page:
-![](/assets/pictures/codequiz.png)
+![](codequiz.png)
 
 Planning stage-
  I wanted to create a unique ‘D&D’ inspired theme that used riddles instead of a normal quiz setup. 
@@ -20,7 +20,7 @@ I thought creating a background image for my content to be displayed on would gi
 JavaScript Portion-
 I had a lot of difficulty calling my variables so that array would show up inside the contact boxes. Even after watching tutorials, I had trouble getting the elements to pull.
 Eventually I was able to get them to show up using ID tags in each option, when before I was using the id tag of the container.
-![](/assets/pictures/displayingquestions.png)
+![](displayingquestions.png)
 
 This part caused me so make issues. I wish I had started with creating my content all in JS and then getting everything to the page rather than creating boxes and styling with HTML & CSS. Next time I'm going to get things showing up in JavaScript first then working on the styling. 
 
