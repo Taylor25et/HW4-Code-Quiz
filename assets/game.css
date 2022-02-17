@@ -7,24 +7,24 @@
      width: 100%;
      border-radius: 10px;
      background: rgba(93, 96, 67, 0.482);
-     font-size: 30px;
-     min-width: 80rem;
+     font-size: 12px;
+     min-width: 80%;
  }
 
  .choice-container:hover{
     cursor: pointer;
     box-shadow: 0px 6px 6px 6px black;
-    transition: transform .5s;
-    transform: scale(1.03);
+    /* transition: transform .5s; */
+    /* transform: scale(1.03); */
  }
 
  .choice-prefix{
-     padding: 2rem 2.5rem;
+     /* padding: 2rem 2.5rem; */
      color: white;
  }
 
  .choice-text{
-     padding: 2rem;
+     /* padding: 2rem; */
      width: 100%;
  }
 
@@ -70,10 +70,16 @@
     background: rgb(180, 160, 127);
     width: 0%;
 }
+/* 
 
-
- @media screen and (max-width: 768px) {
-     .choice-container{
-        min-width: 40rem;
-     }
- }
+ @media screen and (max-width: 900px) {
+    .choice-container{
+        display: flex;
+        margin-bottom: 0.8rem;
+        width: 50%;
+        border-radius: 10px;
+        background: rgba(93, 96, 67, 0.482);
+        font-size: 20px;
+   
+    }
+ } */

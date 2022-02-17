@@ -1,23 +1,25 @@
-var question = document.querySelector('#question');
-var choices = Array.from(document.querySelectorAll('.choice-text'));
-
-
 let acceptingAnswers = true
 let score = 0
 let questionCounter = 0
 let availableQuestions = []
-
+var timer;
+let progressBarEl = document.getElementById('progressBar')
 
 var time = 120
 function startGame() {
-    setInterval(startTimer, 1000)
+   timer = setInterval(startTimer, 1000)
     getNewQuestion();
 }
 //timer//
 function startTimer(){
     //display//
-    let progressBarEl = document.getElementById('progressBar')
+   
     progressBarEl.textContent = time--
+
+    if(time <=0){
+     
+        gameOver()
+    }
 }
 
 
@@ -75,27 +77,61 @@ function getNewQuestion(){
 
 function buttonClick(){
      if(this.getAttribute('data-value') === questions[questionCounter].answer){
-        console.log('right')
+        score = score + 25
+        document.getElementById('score').textContent = score;
      } else{
-        console.log('wrong');
+        time -= 20
+
+        if(time <0){
+            time =0;
+        }
+
+        progressBarEl.textContent = time
      }
 
      questionCounter++;
 
      if(questionCounter === questions.length){
-         alert('game over')
+         gameOver()
      }
      else{
          getNewQuestion()
      }
 }
+
+function gameOver(){
+    clearInterval(timer)
+    document.getElementById('container').removeAttribute('class')
+    document.getElementById('container').setAttribute('class', 'hide')
+    document.getElementById('gameover').removeAttribute('class');
+    document.getElementById('gameover').setAttribute('class', 'container')
+}
+
+function highScores(event){
+    event.preventDefault()
+    var username = document.getElementById('name').value;
+
+    var highscores = JSON.parse(localStorage.getItem('highscores')) || []
+
+    var newScore = {
+        score: score,
+        user: username
+    }
+
+    highscores.push(newScore)
+    localStorage.setItem('highscores', JSON.stringify(highscores))
+
+    window.location.href = "end.html";
+}
 //Score//
-// element.addEventListener("click", function(){ alert("Hello World!"); });
+
 
 document.getElementById('option1').addEventListener('click', buttonClick)
 document.getElementById('option2').addEventListener('click', buttonClick)
 document.getElementById('option3').addEventListener('click', buttonClick)
 document.getElementById('option4').addEventListener('click', buttonClick)
 
+
+document.getElementById('user').addEventListener('submit', highScores)
 
 startGame()
